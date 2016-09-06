@@ -9,7 +9,6 @@ namespace BangBang.Models
     {
         public int idUsr { get; set; }
         public int idPartida { get; set; }
-        public int angulo { get; set; }
-        public int velocidad { get; set; }
+        public int posicion_caida { get; set; }        
     }
 }

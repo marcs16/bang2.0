@@ -58,53 +58,49 @@ namespace BangBang.Models
 
         public bool InicioPartida(Datos datos)
         {
-            if (partidas[nroPartidas][1] == null)
+            if (partidas[datos.idPartida][1] == null)
             {
                 return false;
             }
             return true;
         }//retorna true si ya hay cupo completo en la partida y false aun falta un jugador
 
-        public bool Lanzamiento(DatosLanzamiento datos)
+        public bool Lanzar(DatosLanzamiento datos)
         {
-            Jugador j_Mira = new Jugador();
+            Jugador oponente = new Jugador();
             if (partidas[datos.idPartida][0].id == datos.idUsr)
             {
-                j_Mira = partidas[datos.idPartida][1];
+                oponente = partidas[datos.idPartida][1];
                 partidas[datos.idPartida][0].turno = false;
             }
             else
             {
-                j_Mira = partidas[datos.idPartida][0];
+                oponente = partidas[datos.idPartida][0];
                 partidas[datos.idPartida][1].turno = false;
-            }            
-            double alcance = (Math.Pow(datos.velocidad, 2)/9.8)*Math.Sin(2*datos.angulo);
-            if (alcance == j_Mira.ubicacion)
+            }
+            int alcance = datos.posicion_caida;   
+            //double alcance = (Math.Pow(datos.velocidad, 2)/9.8)*Math.Sin(2*datos.angulo);
+            if (alcance == oponente.ubicacion)
             {
-                j_Mira.estado = false;
+                oponente.estado = false;
                 return true;
             }
-            j_Mira.turno = true;
+            oponente.turno = true;
             return false;
             //retorna true si dio en el blanco, false si no
         }
 
         public bool Turno(Datos datos)
-        {
-            Jugador j_Atacante = new Jugador();
+        {            
             Jugador yo = new Jugador();
             if (partidas[datos.idPartida][0].id == datos.idUsuario)
-            {
-                j_Atacante = partidas[datos.idPartida][1];
+            {                
                 yo = partidas[datos.idPartida][0];
             }
             else
-            {
-                j_Atacante = partidas[datos.idPartida][0];
+            {               
                 yo = partidas[datos.idPartida][1];
-            }
-            bool turnoOponente = j_Atacante.turno;
-            //while (!turnoOponente) { }
+            }                      
             if (yo.estado)
                 return false;
             else

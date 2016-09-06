@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace BangBang.Controllers
 {
@@ -18,27 +19,27 @@ namespace BangBang.Controllers
             return Json(datos, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult InicioPartida(Datos datos)
+        public JsonResult InicioPartida(string json)
         {
-            //Datos datos = new JavaScriptSerializer().Deserialize<Datos>(json);
+            Datos datos = new JavaScriptSerializer().Deserialize<Datos>(json);
             Estado estado = new Estado();
             bool ans = estado.InicioPartida(datos);
             //string a = new JavaScriptSerializer().Serialize(ans);
             return Json(ans, JsonRequestBehavior.AllowGet);
         }
         
-        public JsonResult Lanzar(DatosLanzamiento datos)
+        public JsonResult Lanzar(string json)
         {
-            //DatosLanzamiento datos = new JavaScriptSerializer().Deserialize<DatosLanzamiento>(json);
+            DatosLanzamiento datos = new JavaScriptSerializer().Deserialize<DatosLanzamiento>(json);
             Estado estado = new Estado();
-            bool resultado = estado.Lanzamiento(datos);
+            bool resultado = estado.Lanzar(datos);
             //string a = new JavaScriptSerializer().Serialize(resultado);
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }
         
-        public JsonResult Estado(Datos datos)
+        public JsonResult Estado(string json)
         {
-            //Datos datos = new JavaScriptSerializer().Deserialize<Datos>(json);
+            Datos datos = new JavaScriptSerializer().Deserialize<Datos>(json);
             Estado estado = new Estado();
             bool resultado = estado.Turno(datos);
             //string a = new JavaScriptSerializer().Serialize(resultado);
