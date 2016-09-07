@@ -46,7 +46,7 @@ namespace BangBang.Models
         {
             DatosLanzamiento datos = new JavaScriptSerializer().Deserialize<DatosLanzamiento>(json);
             Estado estado = new Estado();
-            bool resultado=estado.Lanzamiento(datos);
+            bool resultado=estado.Lanzar(datos);
             string a = new JavaScriptSerializer().Serialize(resultado);
             return a;
         }

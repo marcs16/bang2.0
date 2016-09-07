@@ -162,3 +162,5 @@ C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\bin\Mic
 C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\obj\Debug\BangBang.csprojResolveAssemblyReference.cache
 C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\obj\Debug\BangBang.dll
 C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\obj\Debug\BangBang.pdb
+C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\bin\Facebook.dll
+C:\Users\Mateo Ortiz Cano\Source\Repos\bangbang-server\BangBang\BangBang\bin\Facebook.xml
